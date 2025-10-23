@@ -33,7 +33,7 @@ function App() {
       <Routes>
         <Route path="/" element={
         <>
-        <h1 style={{ color: 'black', marginBottom: '100px', fontFamily: 'Consolas'}}>Welcome</h1>
+        <h1 style={{ color: 'black', marginBottom: '100px', fontFamily: 'Consolas, monospace'}}>Welcome</h1>
         <div className="image">
           <img src={readingImage} 
     
