@@ -56,3 +56,9 @@
 .nav-button:hover {
   text-decoration-color: blue;
 }
+
+.page-container {
+  background-color: transparent;
+  width: 800px;
+  height: 600px;
+}

@@ -1,17 +1,23 @@
 import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import readingImage from './assets/reading.svg'
 import './App.css'
+import BookLending from './pages/BookLending'
 
 function App() {
 
   return (
-    <>
+    <Router>
     <div className='app-container'>
       <div className="separator">
-        <h2 style={{ color: 'black', marginBottom: '800px', fontFamily: 'Consolas', marginLeft: '0px', fontSize: 'xx-large'}}>Hello admin!</h2>
         <nav className='nav-sidebar'>
+        <Link to="/">
+        <button className='nav-button'>Home</button>
+        </Link>
         <br/>
+        <Link to="/lending">
         <button className="nav-button">Book Lending</button>
+        </Link>
         <br/>
         <button className='nav-button'>Book Return</button>
         <br/>
@@ -24,17 +30,28 @@ function App() {
       </div>
 
       <div className="rest-screen">
-      <h1 style={{ color: 'black', marginBottom: '100px', fontFamily: 'Consolas'}}>Welcome</h1>
-      <div className="image">
-        <img src={readingImage} 
-        className="logo" 
-        alt="logo"
-        style={{width: 800, height: 600}}
-        />
+      <Routes>
+        <Route path="/" element={
+        <>
+        <h1 style={{ color: 'black', marginBottom: '100px', fontFamily: 'Consolas'}}>Welcome</h1>
+        <div className="image">
+          <img src={readingImage} 
+    
+          className="logo" 
+          alt="logo"
+          style={{width: 800, height: 600}}
+          />
+        </div>
+        </>
+        } />
+    
+    
+      <Route path="/lending" element= {<BookLending />} />
+      </Routes>
       </div>
-      </div>
-      </div>
-    </>
+
+    </div>
+    </Router>
   )
 }
 
