@@ -1,0 +1,19 @@
+.separator {
+  width: 300px;
+  height: 100vh;
+  background-color: #D3D3D3;
+  display: flex;
+  position: absolute;
+}
+
+.rest-screen {
+  width: calc(100vw - 20px);
+  height: 100vh;
+  background-color: #F9F9F9;
+  display: flex;
+}
+
+.image {
+  margin-top: 300px;
+  justify-content: center;
+}
