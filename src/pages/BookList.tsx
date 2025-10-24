@@ -45,6 +45,15 @@ const BookList: React.FC = () => {
         }
     };
 
+    const deleteBook = () => {
+        if(books.length > 0) {
+            if (window.confirm ('Do you want to delete all books?')) {
+                setBooks([]);
+                localStorage.removeItem(LOCAL_STORAGE_KEY);
+            }
+        }
+    };
+
 return (
     <div className="rest-screen"> 
         <table style={{color: 'black'}}>
@@ -67,15 +76,21 @@ return (
         </table>
 
         {showAddForm && (
-            <div style={{ margin: '20px', padding: '15px', border: '1px solid black'}}>
-            <h3>Add New Book</h3>
-            <div>
+            <div style={{
+                margin: '500px', 
+                padding: '100px', 
+                border: '1px solid black',
+                position: 'fixed',
+                backgroundColor: 'rgba(128, 128, 128, 0.7)',
+                }}>
+            <h3 style={{marginTop: '0', fontFamily: 'Consolas, monospace'}}>Add New Book</h3>
+            <div style={{marginBottom: '30px'}}>
                 <label>Title:</label>
                 <input
                     type="text"
                     value={newBook.title}
                     onChange={(e) => setNewBook({ ...newBook, title: e.target.value })}
-                    placeholder='Enter Book Title'
+                    placeholder=' Enter Book Title'
                 />
             </div>
             
@@ -85,18 +100,18 @@ return (
                 type="text"
                 value={newBook.author}
                 onChange={(e) => setNewBook({ ...newBook, author: e.target.value})}
-                placeholder='Enter Author Name'
+                placeholder=' Enter Author Name'
                 />
             </div>
-
-            <button onClick={addBook}>Submit</button>
-            <button onClick={() => setShowAddForm(false)}></button>
+            <div style={{marginTop: '30px'}}></div>
+            <button onClick={addBook} style={{marginRight:'20px'}}>Submit</button>
+            <button onClick={() => setShowAddForm(false)}>Cancel</button>
 
             </div>
         )}
 
         <div className="button-row">
-        <button className="button-lending-position">Delete Book(s)</button>
+        <button className="button-lending-position" onClick={deleteBook}>Delete All Books</button>
         <button className="button-lending-position"
         onClick={() => setShowAddForm(true)}
         >Add Book</button>
