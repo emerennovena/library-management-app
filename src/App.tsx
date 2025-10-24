@@ -1,8 +1,8 @@
-import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import readingImage from './assets/reading.svg'
 import './App.css'
 import BookLending from './pages/BookLending'
+import BookReturn from './pages/BookReturn'
 
 function App() {
 
@@ -19,13 +19,13 @@ function App() {
         <button className="nav-button">Book Lending</button>
         </Link>
         <br/>
+        <Link to="/return">
         <button className='nav-button'>Book Return</button>
+        </Link>
         <br/>
         <button className='nav-button'>Book List</button>
         <br/>
         <button className='nav-button'>Edit Books</button>
-        <br/>
-        <button className='nav-button'>Account</button>
         </nav>
       </div>
 
@@ -47,6 +47,7 @@ function App() {
     
     
       <Route path="/lending" element= {<BookLending />} />
+      <Route path="/return" element= {<BookReturn />} />
       </Routes>
       </div>
 

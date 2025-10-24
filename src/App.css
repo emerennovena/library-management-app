@@ -88,3 +88,15 @@
   flex-direction: column;
   display: flex;
 }
+
+.button-lending-position {
+  justify-content: center;
+  text-align: center;
+  border-radius: none;
+  background-color: rgb(95, 192, 225);
+  padding: 15px;
+  width: 300px;
+  font-family: 'Consolas', monospace;
+  margin-top: 40px;
+  margin-left: 240px;
+}

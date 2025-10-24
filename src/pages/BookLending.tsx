@@ -1,5 +1,3 @@
-import { LucideScanText } from "lucide-react";
-
 const BookLending = () => {
     return (
         <div className="page-container">
@@ -35,6 +33,8 @@ const BookLending = () => {
             </label>
             </div>
             </div>
+
+            <button className="button-lending-position">Confirm Loan</button>
 
         </div>
     );
