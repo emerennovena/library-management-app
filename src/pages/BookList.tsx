@@ -14,6 +14,8 @@ const LOCAL_STORAGE_KEY = "library_books";
 
 const BookList: React.FC = () => {
     const [books, setBooks] = useState<Book[]>([]);
+    const [newBook, setNewBook] = useState({ title: '', author: ''});
+    const [showAddForm, setShowAddForm] = useState(false);
     
     useEffect(() => {
         const storedBooks = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -21,6 +23,27 @@ const BookList: React.FC = () => {
             setBooks(JSON.parse(storedBooks));
         }
     }, []);
+
+    // save to local storage whenever books change
+    useEffect(() => {
+        if(books.length > 0){
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(books));
+        }
+    }, [books]);
+
+    const addBook = () => {
+        if (newBook.title != '' && newBook.author != ''){
+            const book = {
+                id: Date.now(),
+                title: newBook.title,
+                author: newBook.author,
+                available: true
+            };
+            setBooks([...books, book]);
+            setNewBook({title:'', author:''});
+            setShowAddForm(false);
+        }
+    };
 
 return (
     <div className="rest-screen"> 
@@ -42,9 +65,41 @@ return (
             ))}
         </tbody>
         </table>
+
+        {showAddForm && (
+            <div style={{ margin: '20px', padding: '15px', border: '1px solid black'}}>
+            <h3>Add New Book</h3>
+            <div>
+                <label>Title:</label>
+                <input
+                    type="text"
+                    value={newBook.title}
+                    onChange={(e) => setNewBook({ ...newBook, title: e.target.value })}
+                    placeholder='Enter Book Title'
+                />
+            </div>
+            
+            <div>
+                <label>Author:</label>
+                <input 
+                type="text"
+                value={newBook.author}
+                onChange={(e) => setNewBook({ ...newBook, author: e.target.value})}
+                placeholder='Enter Author Name'
+                />
+            </div>
+
+            <button onClick={addBook}>Submit</button>
+            <button onClick={() => setShowAddForm(false)}></button>
+
+            </div>
+        )}
+
         <div className="button-row">
         <button className="button-lending-position">Delete Book(s)</button>
-        <button className="button-lending-position">Add Book</button>
+        <button className="button-lending-position"
+        onClick={() => setShowAddForm(true)}
+        >Add Book</button>
         </div>
     </div>
 );

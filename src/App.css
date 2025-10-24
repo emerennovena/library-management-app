@@ -109,8 +109,7 @@
 .rest-screen table {
   width: 80%;
   border-collapse: collapse;
-  margin-top: 20px;
-  margin-bottom: 500px;
+  margin-bottom: 50px;
 }
 
 .rest-screen th, td {
