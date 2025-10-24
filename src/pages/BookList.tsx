@@ -42,6 +42,10 @@ return (
             ))}
         </tbody>
         </table>
+        <div className="button-row">
+        <button className="button-lending-position">Delete Book(s)</button>
+        <button className="button-lending-position">Add Book</button>
+        </div>
     </div>
 );
 }

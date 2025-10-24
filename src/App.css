@@ -126,3 +126,8 @@
 .rest-screen tbody {
   background-color:#f0f0f0; 
 }
+
+.button-row {
+  justify-content: center;
+  margin-right: 299px;
+}

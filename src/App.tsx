@@ -27,8 +27,6 @@ function App() {
         <Link to="/list">
         <button className='nav-button'>Book List</button>
         </Link>
-        <br/>
-        <button className='nav-button'>Edit Books</button>
         </nav>
       </div>
 
