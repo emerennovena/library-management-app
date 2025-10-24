@@ -3,6 +3,7 @@ import readingImage from './assets/reading.svg'
 import './App.css'
 import BookLending from './pages/BookLending'
 import BookReturn from './pages/BookReturn'
+import BookList from './pages/BookList'
 
 function App() {
 
@@ -23,7 +24,9 @@ function App() {
         <button className='nav-button'>Book Return</button>
         </Link>
         <br/>
+        <Link to="/list">
         <button className='nav-button'>Book List</button>
+        </Link>
         <br/>
         <button className='nav-button'>Edit Books</button>
         </nav>
@@ -48,6 +51,7 @@ function App() {
     
       <Route path="/lending" element= {<BookLending />} />
       <Route path="/return" element= {<BookReturn />} />
+      <Route path="/list" element= {<BookList />} />
       </Routes>
       </div>
 
