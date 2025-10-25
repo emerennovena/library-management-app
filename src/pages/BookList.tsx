@@ -59,6 +59,7 @@ return (
         <table style={{color: 'black'}}>
         <thead>
             <tr>
+                <th className="font-style">Book ID</th>
                 <th className='font-style'>Title</th>
                 <th className='font-style'>Author</th>
                 <th className='font-style'>Availability</th>
@@ -67,6 +68,7 @@ return (
         <tbody>
             {books.map(book => (
                 <tr key={book.id}>
+                    <td className="font-style">{book.id}</td>
                     <td className="font-style">{book.title}</td>
                     <td className="font-style">{book.author}</td>
                     <td className="font-style">{book.available ? 'Available' : 'Unavailable'}</td>
